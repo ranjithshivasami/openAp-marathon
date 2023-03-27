@@ -27,6 +27,8 @@ class HomeController extends Controller
     public function index()
     {
         //echo phpinfo();
+        return view('home');
+    
         if (! function_exists('imap_open')) {
             echo "Error: IMAP is not configured.";
             exit();
