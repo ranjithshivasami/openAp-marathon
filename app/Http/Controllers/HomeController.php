@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use PhpMimeMailParser\Parser;
 use Illuminate\Support\Facades\Mail;
-use App\Models\Mail_content;
+use App\Models\Mailcontent;
 
 class HomeController extends Controller
 {
@@ -63,18 +63,20 @@ class HomeController extends Controller
             // Display the email body
            // echo "Body: " . $email_body . "<br>";
 
-
-            Mail_content::create([
+            $checkexist=Mail_content::where('mailrecvdate','>',date('Y-m-d H:i:s'))->get();
+            if($checkexist){
+            Mailcontent::create([
             'from' => $email_header->from[0]->mailbox . "@" . $email_header->from[0]->host,
             'subject' => $email_header->subject,
             'mailrecvdate' => $emailrecv_date3,
             'body'=>$email_body
         ]);
         }
-            
-
-            imap_close($imapStream);
+        }
+        
+        imap_close($imapStream);
         //openapi fun call
+        //$get=$this->generate_text($email_body);
         $get=$this->generate_text('I hate chocolate');
         print_r($get);
         return view('home');
