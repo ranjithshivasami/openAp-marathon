@@ -18,5 +18,6 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
+Route::get('/user-email-setting', [\App\Http\Controllers\UserEmilSettings::class, 'create'])->name('user_mail_settings.index');
+Route::post('/user-email-setting', [\App\Http\Controllers\UserEmilSettings::class, 'create'])->name('user_mail_settings.store');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

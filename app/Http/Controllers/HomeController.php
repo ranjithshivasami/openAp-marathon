@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use PhpMimeMailParser\Parser;
 use Illuminate\Support\Facades\Mail;
 use App\Models\Mail_content;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -26,9 +28,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //echo phpinfo();
-        return view('home');
-    
+     
         if (! function_exists('imap_open')) {
             echo "Error: IMAP is not configured.";
             exit();
