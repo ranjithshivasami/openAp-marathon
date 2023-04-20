@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('body');
             $table->boolean('is_process')->default(0);
             $table->string('OpenAIemotional_status')->nullable();
+            $table->string('start_time')->nullable();
+            $table->string('end_time')->nullable();
             $table->integer('userid')->default(0);;
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
         });

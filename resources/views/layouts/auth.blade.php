@@ -65,7 +65,13 @@
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
     <script src="{{ asset('assets/vendors/js/vendor.bundle.base.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script src="{{ asset('assets/js/register.js')}}"></script>
+    <script src="{{ asset('assets/js/login.js')}}"></script>
+
+
     <!-- endinject -->
     <!-- Plugin js for this page -->
     <!-- End plugin js for this page -->
