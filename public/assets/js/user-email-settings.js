@@ -3,7 +3,11 @@ var UserEmailSettings = function(){
     function init(){
         initSelect2();
         initvalidation();
-       
+        $(document).on('click', '#delete',function(){
+            if (confirm('Are you sure you delete') == true) {
+                $('#delete-form').submit();
+              } 
+        });
     }
 
    function initSelect2(){
@@ -23,10 +27,7 @@ var UserEmailSettings = function(){
                 },
                 'password': {
                     required: true
-                },
-                'confirm_password': {
-                    required: true
-                },
+                },                
                 'start_time': {
                     required: true
                 },
@@ -45,10 +46,7 @@ var UserEmailSettings = function(){
                 },
                 password: {
                     required: "Password is required"
-                },
-                confirm_password: {
-                    required: "Confirm Password is required"
-                },
+                },               
                 start_time: {
                     required: "Start Time is required"
                 },

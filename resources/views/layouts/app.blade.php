@@ -25,15 +25,16 @@
 </head>
 
 <body>
+<div id="cover-spin"></div>
     <div class="container-scroller">
         <!-- partial:../../partials/_sidebar.html -->
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
             <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-                <a class="sidebar-brand brand-logo" href="../../index.html">
+                <a class="sidebar-brand brand-logo" href="{{route('home')}}">
                     <!-- <img src="../../assets/images/logo.svg" alt="logo" /> -->
                     <h1 class="text-white">Notification</h1>
                 </a>
-                <a class="sidebar-brand brand-logo-mini" href="../../index.html">
+                <a class="sidebar-brand brand-logo-mini" href="{{route('home')}}">
                     <!-- <img src="../../assets/images/logo-mini.svg" alt="logo" /> -->
                     <h1 class="text-white">N</h1>
                 </a>
@@ -47,6 +48,7 @@
             <!-- partial -->
             <div class="main-panel">
                 <div class="content-wrapper">
+                @include('layouts.includes.flash-message')
                     @yield('content')
                 </div>
                 <!-- content-wrapper ends -->
