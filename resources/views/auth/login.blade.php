@@ -3,11 +3,11 @@
 @section('content')
 <div class="card-body px-5 py-5">
                 <h3 class="card-title text-left mb-3">Login</h3>
-                <form method="POST" action="{{ route('login') }}">
+                <form id="login-form" method="POST" action="{{ route('login') }}">
                         @csrf
                   <div class="form-group">
                     <label>Username or email *</label>
-                    <input class="form-control p_input"  id="email" type="email"  name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                    <input class="form-control p_input"  id="email" type="email"  name="email" value="{{ old('email') }}"  autocomplete="email" autofocus>
                     @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -16,7 +16,7 @@
                   </div>
                   <div class="form-group">
                     <label>Password *</label>
-                    <input type="password" id="password" name="password" class="form-control p_input" required autocomplete="current-password">
+                    <input type="password" id="password" name="password" class="form-control p_input"  autocomplete="current-password">
                     @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -106,4 +106,7 @@
         </div>
     </div>
 </div> -->
+@endsection
+@section('script')
+<script src="{{ asset('assets/js/login.js')}}"></script>
 @endsection

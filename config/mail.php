@@ -43,18 +43,17 @@ return [
             'password' => 'AC2hgyKHcVBhh3z',
             'validate_cert' => true,
         ],
-        // 'smtp' => [
-        //     'transport' => 'smtp',
-        //     'host' => env('MAIL_HOST', 'mail1.cgvakindia.com'),
-        //     'port' => env('MAIL_PORT', 587),
-        //     'encryption' => env('MAIL_ENCRYPTION', 'tls'),
-        //     'username' => env('MAIL_USERNAME'),
-        //     'password' => env('MAIL_PASSWORD'),
-        //     'timeout' => null,
-        //     //'local_domain' => env('MAIL_EHLO_DOMAIN'),
-        //     'auth_mode' => null,
-
-        // ],
+        'smtp' => [
+            'transport' => 'smtp',
+            'host' => env('MAIL_HOST', 'mail1.cgvakindia.com'),
+            'port' => env('MAIL_PORT', 587),
+            'encryption' => env('MAIL_ENCRYPTION', 'tls'),
+            'username' => env('MAIL_USERNAME'),
+            'password' => env('MAIL_PASSWORD'),
+            'timeout' => null,
+            //'local_domain' => env('MAIL_EHLO_DOMAIN'),
+            'auth_mode' => null,
+        ],
 
         'ses' => [
             'transport' => 'ses',

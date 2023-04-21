@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<h1 class="text-white">Dashboard</h1>
+    <h1>Error</h1>
+    <p>{{ $message }}</p>
 @endsection
+
