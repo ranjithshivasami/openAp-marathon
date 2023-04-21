@@ -9,8 +9,15 @@ var UserEmailSettings = function(){
             $.ajax({
               url: '/getMailInfo',
               method: 'GET',
+              beforeSend: function(){
+                $("#cover-spin").show();
+              },
               success: function(response){
-                console.log(response);
+                $("#cover-spin").hide();
+                if(response.status === 'error'){
+                    alert(response.message);
+                    return;
+                }
                 $("#mailcontent tbody").empty(); // clear existing data
 
                 var sentimentValues = response;
@@ -32,7 +39,8 @@ var UserEmailSettings = function(){
                 }
               },
               error: function(error) {
-              console.log(error);
+                $("#cover-spin").show();
+              
               }
                           });
           });

@@ -41,7 +41,7 @@ class UserEmilSettings extends Controller
         $mailSetting = UserMailSetting::find($id);
         $user = Auth::user();
         if ($user->id != $mailSetting->user_id) {
-            return redirect()->route('user_mail_settings.index')->with('error', 'Access denied.');
+            return redirect()->route('user_email_settings.index')->with('error', 'Access denied.');
         }
         return view('user_email_settings.index', compact('mailSetting'));
     }
@@ -52,7 +52,7 @@ class UserEmilSettings extends Controller
     public function store(Request $request)
     {
     //     $validator = Validator::make($request->all(), [
-    //         'primary_email' => 'required|string|unique:user_mail_settings,primary_email',
+    //         'primary_email' => 'required|string|unique:user_email_settings,primary_email',
     //         'secondary_email' => 'nullable|string',
     //         'mail_server' => 'required|string',
     //         'port' => 'required|string',
@@ -67,14 +67,14 @@ class UserEmilSettings extends Controller
     //         return back()->withErrors($validator);
     //     }
         $request->validate([
-            'primary_email' => 'required|email|unique:user_mail_settings',
+            'primary_email' => 'required|email|unique:user_email_settings',
             'secondary_email' => 'nullable|email',
             'mail_server' => 'required',
             'port' => 'required',
             'protocol' => 'required',
             'password' => 'required',
         ]);
-        
+   
         $user = Auth::user();
         //print_r($user);die;
         // Create a new UserMailSetting instance and fill its properties
@@ -93,10 +93,10 @@ class UserEmilSettings extends Controller
 
         // Save the new user_mail_setting record
         $setting->save();
-        return redirect()->route('user_mail_settings.index')->with('success', 'Mail settings updated successfully.');
-
-        //return redirect(route('user_mail_settings.index'));
-        //return redirect()->route('user_mail_settings.index')->with('success', 'User mail setting created successfully');
+        return redirect()->route('user_email_settings.edit', $setting->id)->with('success', 'Mail settings updated successfully.');
+       // return redirect()->route('user_email_settings.edit', $setting->id)->with('success', 'Mail settings updated successfully.');
+        //return redirect(route('user_email_settings.index'));
+        //return redirect()->route('user_email_settings.index')->with('success', 'User mail setting created successfully');
     }
     
     /**
@@ -106,11 +106,11 @@ class UserEmilSettings extends Controller
     {
         $user = Auth::user();
         if ($user->id != $mailSetting->user_id) {
-            return redirect()->route('user_mail_settings.index')->with('error', 'Access denied.');
+            return redirect()->route('user_email_settings.index')->with('error', 'Access denied.');
         }
         
         $validator = Validator::make($request->all(), [
-            'primary_email' => ['required', 'string', Rule::unique('user_mail_settings')->ignore($mailSetting->id)],
+            'primary_email' => ['required', 'string', Rule::unique('user_email_settings')->ignore($mailSetting->id)],
             'secondary_email' => 'nullable|string',
             'mail_server' => 'required|string',
             'port' => 'required|string',

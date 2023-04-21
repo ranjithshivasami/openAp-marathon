@@ -20,7 +20,7 @@ tr:nth-child(even){background-color: #f2f2f2}
     <h3 class="page-title"> Get Mail Status </h3>
     
 </div>
-<button id="getMailInfo" class="btn btn-info btn-rounded btn-fw">Click me</button>
+<button id="getMailInfo" class="btn btn-info btn-rounded btn-fw">Check mail</button>
 <br><br>
 <div style="overflow-x:auto;">
 <table class="table table-bordered" id="mailcontent">
